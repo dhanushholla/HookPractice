@@ -1,0 +1,4 @@
+the aim of this repo is to get familiar with the different hooks in the react
+
+EOD: 17-10-22:
+        i have made use of the hooks like usestate, useeffect(replicating didmount and didupdate) , usecontext(while sharing movie title from landingcomp to detailedview comp)

@@ -1,0 +1,32 @@
+.Movie-details {
+    color:wheat;
+    display: flex;
+    flex-direction: column;
+    width:40vw;
+    justify-content: first baseline;
+    align-items: flex-start;
+    font-style: oblique;
+    row-gap: 5%;
+    padding:2%;
+}
+.Movie-details div{
+    text-align: left;
+    /* font-size: medium; */
+}
+
+.movie-backdrop-pic img{
+    width: 50vw;
+    object-fit: contain;
+}
+
+.selected-movie{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;   
+}
+.selected-title{
+    font-size: 3vw;
+    font-weight: bold;
+    color:white;
+}
+

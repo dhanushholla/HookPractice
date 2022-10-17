@@ -1,0 +1,47 @@
+navbar{
+    color:white;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+navbar .nav-left{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap :1rem;
+}
+navbar .nav-right{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color:white;
+    gap :1rem;
+    
+}
+navbar .nav-right div:hover{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color:white;
+    gap :1rem;
+    transform: scale(1.3);
+    font-weight: bolder;
+    cursor: pointer;
+    
+}
+
+navbar .nav-left div:hover{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color:white;
+    /* gap :1.3rem; */
+    /* transform: scale(1.1); */
+    font-weight: bolder;
+    cursor: pointer;
+}
+
