@@ -29,7 +29,7 @@ import YouTube from 'react-youtube'
 
 const  Detailedview= React.forwardRef((props,ref) =>
 {
- const {trendingmovies,overview,ratings,releasedate,backdrop,indexor} =props
+ const {popularmovies,trendingmovies,overview,ratings,releasedate,backdrop,indexor} =props
   const[ylink,setylink]= useState('')
   const contextvalue = useContext(selectedmoviedetailscontext);
   const resetbackdrop=()=>{
@@ -65,7 +65,8 @@ const  Detailedview= React.forwardRef((props,ref) =>
           </div>
           <div>
           <button
-            onClick={() =>
+            onClick={() =>( 
+              trendingmovies.find(movie=>movie.original_title===contextvalue)?
               fetch(
                 `https://api.themoviedb.org/3/movie/${trendingmovies[indexor].id}?api_key=bc15998854a31257b9edf602e4fb472e&append_to_response=videos`
               )
@@ -76,7 +77,18 @@ const  Detailedview= React.forwardRef((props,ref) =>
                                     rendertrailer(result)
                      ))
                 .catch((error) => console.log("error occured"))
-          }
+            :
+            (fetch(
+              `https://api.themoviedb.org/3/movie/${popularmovies[indexor].id}?api_key=bc15998854a31257b9edf602e4fb472e&append_to_response=videos`
+            )
+              .then((res) => res.json())
+              .then((result) => (//<YouTube videoId={result.videos.results[0].key}/>
+                                  //  console.log("whole result of particular play btn clicked video:",result ,`video link key:${result.videos.results[0].key}`)
+                                  // <YouTube videoId={result.videos.results[0].key}></YouTube>)
+                                  rendertrailer(result)
+                   ))
+              .catch((error) => console.log("error occured")))
+          )}
           >
             Play trailer
           </button>
