@@ -1,0 +1,23 @@
+the aim of this repo is to get familiar with the different hooks in the react
+
+EOD: 17-10-22:
+    i have made use of the hooks like usestate, useeffect(replicating didmount and didupdate) , usecontext(while sharing movie title from landingcomp to detailedview comp)
+
+MRNG session : 19-10-22:
+        i have added the playable video for each movie data retrived from the api.
+        i have made use of hooks like useRef,ForwardRef,useimperativeHandle:
+        scenarios where i used three hooks are as follows:
+        i have made whenever we click the playtrailer button of a movie then we can see the trailer
+        but when i clicked the other movie from list( assuming already a trailer was placed) then details of current selected movie would rendered except the old movie trailer was in that place.
+        thus new movie click is on landingpage component which encapsule the detailed view component thus i had to find a way to access the innercomponent's resetbackdrop function whenever a new movie is selected on the outer list component
+        so i achieved it by the steps:
+        create a ref with ur name of choice in outer component (landingpage.js ->resetbackdropref)
+        then assign that ref to innercomponent(ref={resetbackdropref} in landingpage.js's line of detailedview component)
+        then in the inner component(detailedview) reframe the following that you gonna pass the ref to the inner component's resetbackdrop function thus use the forwardref to whole component wrap
+        then we have to send out the logic of resetbackdrop fn thus use the imperative handle to achieve the same
+        then in outer component i have placed the necessary innercomponent logic call by 'resetbackdropref.current.resetbackdrop()' call statement in handleclickontrendlist,handleclickonpopularlist
+        u can understand forwardref,useimperativeHandle,useRef in https://codesandbox.io/s/variant-1-yvjb1?from-embed=&file=/src/components/Toast/index.js
+
+Post Lunch : 19-10-22:
+    added routing between main and search page.. maintained functionalities of searching movies and displaying them in individual components .. achieved backdrop image changing according state var-searchstring changing events
+    had brainstormed few ideas for usereducer,usememo,usecallback hook..yet to finalise and implement @time = 3:30pm

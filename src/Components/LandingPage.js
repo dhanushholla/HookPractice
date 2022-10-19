@@ -5,6 +5,8 @@ import {AiOutlineBell} from 'react-icons/ai'
 import Trendmovies from "./Trendmovies";
 import './Landingpage.css'
 import Detailedview from "./Detailedview";
+import {Link} from "react-router-dom"
+
 
 export const selectedmoviedetailscontext=React.createContext()
 
@@ -72,14 +74,14 @@ function LandingPage() {
         <img
             src="https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2022%2F08%2Fmost-used-netflix-icon-boss-baby-info-tw.jpg?w=960&cbr=1&q=90&fit=max" alt="logo miss"
           width='80vw'/>
-        <div>Home</div>
+        <Link to='/'><div>Home</div></Link>
         <div>TV Shows</div>
         <div>Movies</div>
         <div>Latest</div>
         <div>My List</div>
         </div>
         <div className="nav-right">
-                <div><AiOutlineSearch></AiOutlineSearch></div>
+             <Link to="/search"><div><AiOutlineSearch></AiOutlineSearch></div></Link>  
                 <div><AiOutlineBell></AiOutlineBell></div>
                 <div><AiOutlineUser/></div>
         </div>
