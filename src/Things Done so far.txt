@@ -22,3 +22,17 @@ Post Lunch : 19-10-22:
     added routing between main and search page.. maintained functionalities of searching movies and displaying them in individual components .. achieved backdrop image changing according state var-searchstring changing events
     had brainstormed few ideas for usereducer,usememo,usecallback hook..yet to finalise and implement @time = 3:30pm
     added useNavigate() for home div in searchcomponent
+post break : 19-10-22:
+        implemented the usereducer with default and add action for usecase of just adding name of the movie alone and viewing it whenever mylist is clicked.
+        flow was like in detailedview.js :
+                have a initialstate as empty array
+                then do the usereducer call like   const[movielist,dispatch]=useReducer(reducer,initiallist)
+                then after that define reducer fn : const reducer=(state,action)=>{
+                                                        switch(action){
+                                                        case "add":
+                                                            return [...state,contextvalue] 
+                                                        default:
+                                                            return state
+                                                        }
+                                                    }
+                then make appropriate dispatch call with action word 'add' in the place ie add/+ button event listener.

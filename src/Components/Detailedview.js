@@ -1,4 +1,4 @@
-import React, { useContext,useState,forwardRef,useImperativeHandle,useReducer } from "react";
+import React, { useContext,useState,useImperativeHandle,useReducer } from "react";
 import { selectedmoviedetailscontext } from "./LandingPage";
 import "./Detailedview.css";
 import YouTube from 'react-youtube'
@@ -112,27 +112,28 @@ const  Detailedview= React.forwardRef((props,ref) =>
             Play trailer
           </button> <nbsp></nbsp><nbsp></nbsp>    
         <button onClick={()=>{dispatch('add')
-         toast.success('🥳new moviename added to list! achieved using usereducer with action as add', {
-                    position: "top-right",
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "dark",
-                    });
-                    toast.info('click on MY list to view added movies', {
-                      position: "top-right",
-                      autoClose: 7000,
-                      hideProgressBar: false,
-                      closeOnClick: true,
-                      pauseOnHover: true,
-                      draggable: true,
-                      progress: undefined,
-                      theme: "dark",
-                      });
-                    }}><FaPlusCircle  fill="red" ></FaPlusCircle></button>
+              toast.success('🥳new moviename added to list! achieved using usereducer with action as add', {
+                          position: "top-right",
+                          autoClose: 3000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "dark",
+                          });
+                          toast.info('click on MY list to view added movies', {
+                            position: "top-right",
+                            autoClose: 7000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "dark",
+                            });
+             }}>
+          <FaPlusCircle  fill="red" ></FaPlusCircle></button>
           </div>
   
          

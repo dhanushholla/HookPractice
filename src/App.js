@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import LandingPage from './Components/LandingPage';
 import Searchcomp from './Components/Searchcomp';
