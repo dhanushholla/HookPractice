@@ -14,11 +14,27 @@
     /* font-size: medium; */
 }
 
-.movie-backdrop-pic img{
+.movie-backdrop-pic img,iframe{
     width: 50vw;
     object-fit: contain;
 }
+button{
+    background-color: black;
+    color:red;
+    border-radius: 10%;
+    border: 1px solid white;
+    padding: 10px;
+    margin-bottom: 1rem;;
+}
+button:hover{
+    background-color: black;
+    color:red;
+    border-radius: 10%;
+    border: 1px solid yellow;
+    padding: 10px;
+    transform: scale(1.2);
 
+}
 .selected-movie{
     display:flex;
     flex-direction: row;

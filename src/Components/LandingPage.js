@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import Popularmovies from "./Popularmovies";
 import {AiOutlineSearch,AiOutlineUser} from 'react-icons/ai'
 import {AiOutlineBell} from 'react-icons/ai'
@@ -18,14 +18,21 @@ function LandingPage() {
   const[selectedoverview, setSelectedoverview] = useState('')
   const[selectedreleasedate,setselectedreleasedate] = useState('')
   const[selector,setselector]=useState(false)
+  const [indexor,setindexor] = useState('')
+
+  const resetbackdropref=useRef(null)
 
   const handleclickontrendlist=(index)=>{
+        
         setselector(true) 
         setSelectedmovie(trendingmovies[index].original_title ||trendingmovies[index].original_name  );
         setselectedreleasedate(trendingmovies[index].release_date);
         setSelectedbackdrop(`https://image.tmdb.org/t/p/w500/${trendingmovies[index].backdrop_path}`);
         setSelectedrating(trendingmovies[index].vote_average);
         setSelectedoverview(trendingmovies[index].overview);
+        setindexor(index)
+        resetbackdropref.current.resetbackdrop();
+        
   }
   const handleclickonpopularlist=(index)=>{
     setselector(true)
@@ -34,6 +41,8 @@ function LandingPage() {
     setSelectedbackdrop(`https://image.tmdb.org/t/p/w500/${popularmovies[index].backdrop_path}`);
     setSelectedrating(popularmovies[index].vote_average);
     setSelectedoverview(popularmovies[index].overview);
+    setindexor(index)
+    resetbackdropref.current.resetbackdrop();
 }
 
 
@@ -76,7 +85,7 @@ function LandingPage() {
         </div>
       </navbar>
       {selector ?<selectedmoviedetailscontext.Provider value={selectedmovie}>
-            <Detailedview ratings={selectedrating} overview={selectedoverview} backdrop={selectedbackdrop} releasedate={selectedreleasedate}/>
+            <Detailedview trendingmovies={trendingmovies} ratings={selectedrating} overview={selectedoverview} backdrop={selectedbackdrop} releasedate={selectedreleasedate} indexor={indexor} ref={resetbackdropref}/>
        </selectedmoviedetailscontext.Provider> : ""}
        
       <Trendmovies trendingmovies={trendingmovies} handleclickontrendlist={handleclickontrendlist}></Trendmovies>
