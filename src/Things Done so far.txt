@@ -21,3 +21,4 @@ MRNG session : 19-10-22:
 Post Lunch : 19-10-22:
     added routing between main and search page.. maintained functionalities of searching movies and displaying them in individual components .. achieved backdrop image changing according state var-searchstring changing events
     had brainstormed few ideas for usereducer,usememo,usecallback hook..yet to finalise and implement @time = 3:30pm
+    added useNavigate() for home div in searchcomponent

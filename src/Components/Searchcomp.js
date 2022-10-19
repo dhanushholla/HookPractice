@@ -4,10 +4,11 @@ import './Detailedview.css'
 import {AiOutlineSearch,AiOutlineUser} from 'react-icons/ai'
 import {AiOutlineBell} from 'react-icons/ai'
 import './Landingpage.css'
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 
 
 function Searchcomp() {
+    const navigate=useNavigate();
     const[searchstring,setsearchstring]= useState('')
     const[rsp,setrsp]=useState()
     const[localtitle,setlocaltitle]=useState('')
@@ -45,7 +46,9 @@ function Searchcomp() {
         <img
             src="https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2022%2F08%2Fmost-used-netflix-icon-boss-baby-info-tw.jpg?w=960&cbr=1&q=90&fit=max" alt="logo miss"
           width='80vw'/>
-        <Link to='/'><div>Home</div></Link>
+        {/* <Link to='/'><div>Home</div></Link> */}
+        {/* <div onClick={()=>navigate(-1)}>Home</div> .   here -1 the numerical argument has passed to move the history stack pointer. */}
+        <div onClick={()=>navigate('/')}>Home</div>
         <div>TV Shows</div>
         <div>Movies</div>
         <div>Latest</div>
