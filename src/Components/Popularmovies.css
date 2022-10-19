@@ -18,6 +18,18 @@
     width:100vw;
     overflow-x: scroll;
   }
+  ol{
+    color:white;
+    border:2px double red;
+    list-style-type: decimal;
+    display: flex;
+    width:20vw;
+    margin-left:1rem;
+    margin-bottom: 1rem;;
+    flex-direction: column;
+    align-self: flex-start;
+    justify-content: left;
+  }
   
   .card{
     display:flex;

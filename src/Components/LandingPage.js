@@ -19,6 +19,7 @@ function LandingPage() {
   const[selectedrating, setSelectedrating] = useState('')
   const[selectedoverview, setSelectedoverview] = useState('')
   const[selectedreleasedate,setselectedreleasedate] = useState('')
+  const [viewlist, setviewlist] = useState(false);
   const[selector,setselector]=useState(false)
   const [indexor,setindexor] = useState('')
 
@@ -78,7 +79,7 @@ function LandingPage() {
         <div>TV Shows</div>
         <div>Movies</div>
         <div>Latest</div>
-        <div>My List</div>
+        <div onClick={()=>setviewlist(!viewlist)}>My List</div>
         </div>
         <div className="nav-right">
              <Link to="/search"><div><AiOutlineSearch></AiOutlineSearch></div></Link>  
@@ -87,12 +88,11 @@ function LandingPage() {
         </div>
       </navbar>
       {selector ?<selectedmoviedetailscontext.Provider value={selectedmovie}>
-            <Detailedview popularmovies={popularmovies} trendingmovies={trendingmovies} ratings={selectedrating} overview={selectedoverview} backdrop={selectedbackdrop} releasedate={selectedreleasedate} indexor={indexor} ref={resetbackdropref}/>
+            <Detailedview popularmovies={popularmovies} trendingmovies={trendingmovies} ratings={selectedrating} overview={selectedoverview} backdrop={selectedbackdrop} releasedate={selectedreleasedate} indexor={indexor} ref={resetbackdropref} viewlist={viewlist}/>
        </selectedmoviedetailscontext.Provider> : <div className="dummy"></div>}
        
       <Trendmovies trendingmovies={trendingmovies} handleclickontrendlist={handleclickontrendlist}></Trendmovies>
       <Popularmovies popularmovies={popularmovies} handleclickonpopularlist={handleclickonpopularlist}></Popularmovies>
-      
       
     </>
   );

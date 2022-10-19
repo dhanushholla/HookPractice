@@ -11,6 +11,7 @@ function App() {
       <Routes>
         <Route path='/' element={<LandingPage></LandingPage>}></Route>
         <Route path='/search' element= {<Searchcomp></Searchcomp>}></Route>
+        
       </Routes>
       </BrowserRouter>
     </div>
