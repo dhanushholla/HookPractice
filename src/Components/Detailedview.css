@@ -35,6 +35,25 @@ button:hover{
     transform: scale(1.2);
 
 }
+.btn-closer{
+
+        background-color: black;
+        color:red;
+        border-radius: 10%;
+        border: 1px solid white;
+        border-radius: 70%;
+        padding: 10px;
+        margin-bottom: 1rem;;   
+}
+.btn-closer:hover{
+    background-color: black;
+    color:red;
+    border-radius: 80%;
+    border: 1px solid yellow;
+    padding: 10px;
+    transform: scale(1.2);
+
+}
 .selected-movie{
     display:flex;
     flex-direction: row;

@@ -86,7 +86,7 @@ function LandingPage() {
       </navbar>
       {selector ?<selectedmoviedetailscontext.Provider value={selectedmovie}>
             <Detailedview trendingmovies={trendingmovies} ratings={selectedrating} overview={selectedoverview} backdrop={selectedbackdrop} releasedate={selectedreleasedate} indexor={indexor} ref={resetbackdropref}/>
-       </selectedmoviedetailscontext.Provider> : ""}
+       </selectedmoviedetailscontext.Provider> : <div className="dummy"></div>}
        
       <Trendmovies trendingmovies={trendingmovies} handleclickontrendlist={handleclickontrendlist}></Trendmovies>
       <Popularmovies popularmovies={popularmovies} handleclickonpopularlist={handleclickonpopularlist}></Popularmovies>

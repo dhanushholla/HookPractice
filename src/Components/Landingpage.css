@@ -44,4 +44,12 @@ navbar .nav-left div:hover{
     font-weight: bolder;
     cursor: pointer;
 }
+.dummy{
+    object-fit: contain;
+    display: flex;
+    width:100vw;
+    height:50vh;
+    background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/28b69a57-cadf-43d9-8a95-e5f2e11199de/a678bf27-dbb6-42e7-aad1-d4dbb1c31d7b/IN-en-20221010-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+    margin-bottom: 1rem;;
+}
 

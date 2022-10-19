@@ -85,7 +85,7 @@ const  Detailedview= React.forwardRef((props,ref) =>
         </div>
         <div className="movie-backdrop-pic">
         {ylink?"":<img src={backdrop} alt="backdrop missing" />}
-         {ylink ?<><YouTube videoId={ylink}/> <button onClick={()=>setylink()}> close trailer</button></> :""}
+         {ylink ?<><YouTube videoId={ylink}/> <button  className="btn-closer" onClick={()=>setylink()}>X</button></> :""}
         </div>
       </div>
     </>
