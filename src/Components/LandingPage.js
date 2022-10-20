@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState, useEffect,useRef, useMemo } from "react";
 import Popularmovies from "./Popularmovies";
 import {AiOutlineSearch,AiOutlineUser} from 'react-icons/ai'
 import {AiOutlineBell} from 'react-icons/ai'
@@ -67,6 +67,9 @@ function LandingPage() {
       .catch((error) => console.error(error));
   }, []);
 
+  const MemoTrendList=useMemo(()=>{ return <Trendmovies trendingmovies={trendingmovies} handleclickontrendlist={handleclickontrendlist}></Trendmovies>})
+  const MemoPopularlist=useMemo(()=>{ return <Popularmovies popularmovies={popularmovies} handleclickonpopularlist={handleclickonpopularlist}></Popularmovies>}) 
+
   return (
     <>
       {/* <h1>Landing page</h1> */}
@@ -91,8 +94,10 @@ function LandingPage() {
             <Detailedview popularmovies={popularmovies} trendingmovies={trendingmovies} ratings={selectedrating} overview={selectedoverview} backdrop={selectedbackdrop} releasedate={selectedreleasedate} indexor={indexor} ref={resetbackdropref} viewlist={viewlist}/>
        </selectedmoviedetailscontext.Provider> : <div className="dummy"></div>}
        
-      <Trendmovies trendingmovies={trendingmovies} handleclickontrendlist={handleclickontrendlist}></Trendmovies>
-      <Popularmovies popularmovies={popularmovies} handleclickonpopularlist={handleclickonpopularlist}></Popularmovies>
+      {/* <Trendmovies trendingmovies={trendingmovies} handleclickontrendlist={handleclickontrendlist}></Trendmovies>
+      <Popularmovies popularmovies={popularmovies} handleclickonpopularlist={handleclickonpopularlist}></Popularmovies> */}
+      {MemoTrendList}
+      {MemoPopularlist}
       
     </>
   );

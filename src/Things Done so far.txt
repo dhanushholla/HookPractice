@@ -36,3 +36,8 @@ post break : 19-10-22:
                                                         }
                                                     }
                 then make appropriate dispatch call with action word 'add' in the place ie add/+ button event listener.
+
+MRNG SESSION 20-10-22:
+        implemented USEMEMO hook in landingpage.JS, where we have memoized the return value which is nothing but the trendmovies.js,popularmovies.js which would have appropriate movielist array from api fetch result
+        justification: we know that once the api hit for list result those popular/trend movielist wont change thus it is better to keep them as memoized where also detailedview component often changing is not memoized.
+        
