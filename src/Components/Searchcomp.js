@@ -5,6 +5,7 @@ import {AiOutlineSearch,AiOutlineUser} from 'react-icons/ai'
 import {AiOutlineBell} from 'react-icons/ai'
 import './Landingpage.css'
 import {Link, useNavigate} from "react-router-dom"
+import useDebounce from './useDebounce'
 
 
 function Searchcomp() {
@@ -29,15 +30,26 @@ function Searchcomp() {
         setlocaltitle(rsp[index].original_title || rsp[index].original_name)
         setlocalrating(rsp[index].vote_average)
     }
+  //   useEffect(()=>{
+  //     fetch(`https://api.themoviedb.org/3/search/movie?api_key=bc15998854a31257b9edf602e4fb472e&language=en-US&query=${searchstring}&page=1&include_adult=true`)
+  //     .then(res=>res.json())
+  //     .then(result=>{
+  //         console.log(result)
+  //         setimagesselection(result)
+  // })
+  //     .catch(error=>console.log("error lae"))
+  // },[searchstring])
+
+    const debouncedsearchterm=useDebounce(searchstring,500)
     useEffect(()=>{
-        fetch(`https://api.themoviedb.org/3/search/movie?api_key=bc15998854a31257b9edf602e4fb472e&language=en-US&query=${searchstring}&page=1&include_adult=true`)
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=bc15998854a31257b9edf602e4fb472e&language=en-US&query=${debouncedsearchterm}&page=1&include_adult=true`)
         .then(res=>res.json())
         .then(result=>{
             console.log(result)
             setimagesselection(result)
     })
         .catch(error=>console.log("error lae"))
-    },[searchstring])
+    },[debouncedsearchterm])
 
   return (
     <>

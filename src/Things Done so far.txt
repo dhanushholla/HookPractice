@@ -38,6 +38,18 @@ post break : 19-10-22:
                 then make appropriate dispatch call with action word 'add' in the place ie add/+ button event listener.
 
 MRNG SESSION 20-10-22:
-        implemented USEMEMO hook in landingpage.JS, where we have memoized the return value which is nothing but the trendmovies.js,popularmovies.js which would have appropriate movielist array from api fetch result
+      1)  implemented USEMEMO hook in landingpage.JS, where we have memoized the return value which is nothing but the trendmovies.js,popularmovies.js which would have appropriate movielist array from api fetch result
         justification: we know that once the api hit for list result those popular/trend movielist wont change thus it is better to keep them as memoized where also detailedview component often changing is not memoized.
-        
+      2) implemented a custom hook : useDebounce  ---> debouncing is the concept that we use to restrict the unnecessary api call done during search . eg if i search "dhanu" USUALLY 5 API calls will be made like 1 api call for 1 letter
+            which is not performance effcient thus we introduce debouncing.
+            debouncing provide artificial timeout between keystrokes to lower api calls
+            we done it in useDebounce file where 
+                        we have a const called debouncedvalue which is taking prop named value as assignment and has a setter method
+                        then we did the useeffectwith the logic of setting debounced value with a delay... ie say i have made/ type abc now and debounced value is set as abc ..then i typed defgh but assume delay is not over then the debouncedvalue remains as abc 
+                        and changed as defgh only after delay gets over
+                        then we made useeffect to return a fn (ie cleanup of the timeout) and made that the useeffect need to be called whenever either delay is over or searchterm is changed(satisfied delay time and got appended to old value)
+            then after the hook creation we use it in searchcomponent
+                line 43: assign the normal searchterm and delay as params to useDebounce assigned to be debouncedsearchterm
+                we gonna pass the fetch with debouncedsearchterm as it is going to have the value of typed search term and delay which is used as params to implement usedebounce  hook in background and dependency array has been debouncedsearchterm 
+                as whenever typed value changed this hook effect will be called but useDebounce only decide what need to be there in api search term..ie old value or new value
+                ie usedebounce  : say we type 'abc' and it waits for 5 seconds to make api hit..if anything is type between 5 seconds..it gets appended and search else it is done searching with oldterm after 5seconds.
